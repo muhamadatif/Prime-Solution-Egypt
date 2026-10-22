@@ -16,3 +16,8 @@ node_modules
 .DS_Store
 # TypeScript build info
 tsconfig.tsbuildinfo
+
+# Dev artifacts
+dev.log
+dev.err
+AGENTS.md
