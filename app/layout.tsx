@@ -1,6 +1,9 @@
-import { Analytics } from '@vercel/analytics/next'
+import { Inter } from 'next/font/google'
 import type { Metadata, Viewport } from 'next'
 import './globals.css'
+import { Analytics } from '@vercel/analytics/next'
+
+const inter = Inter({ subsets: ['latin'], variable: '--font-inter', display: 'swap' })
 
 export const metadata: Metadata = {
   title: 'Prime Support Solutions | Managed Business Support',
@@ -39,8 +42,9 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
-      <body className="antialiased">
+    <html lang="en" className={inter.variable}>
+      <body className={`${inter.className} antialiased`}>
+        <a href="#main" className="skip-link">Skip to main content</a>
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>

@@ -6,25 +6,22 @@
 - Brevo account with a validated sender + an API key (see "Brevo setup").
 
 ## 1. Push the code
-The deployable app lives in `prime-solution-vite/`. Make that folder the project root on Vercel
-(or set "Root Directory" to `prime-solution-vite` in the Vercel project settings).
+The deployable app is the repository root (Next.js).
 
 ```bash
-cd prime-solution-vite
-git init && git add . && git commit -m "initial"
+git add . && git commit -m "initial"
 # push to your GitHub/GitLab/Bitbucket repo
 ```
 
 ## 2. Import into Vercel
 1. Vercel Dashboard → "Add New..." → "Project".
 2. Import your Git repo.
-3. Framework Preset: **Vite** (auto-detected). Build command: `npm run build`. Output dir: `dist`.
-4. Root Directory: `prime-solution-vite`.
+3. Framework Preset: **Next.js** (auto-detected). Build command: `npm run build`. Output dir: `.next`.
+4. Root Directory: project root (no subfolder).
 5. Click "Deploy".
 
 CLI alternative:
 ```bash
-cd prime-solution-vite
 vercel            # first deploy (preview)
 vercel --prod     # production deploy
 ```
@@ -63,15 +60,13 @@ After adding/changing env vars, redeploy (Deployments → "..." → Redeploy) so
 
 ## Local dev
 ```bash
-cd prime-solution-vite
 cp .env.example .env.local   # fill in values
 npm install
-npm run dev                  # http://localhost:5173
-npm run build                # production build -> dist/
+npm run dev                  # http://localhost:3000
+npm run build                # production build -> .next/
 ```
 
-Note: locally the `/api/send-enquiry` function is not served by Vite's dev server.
-To test the form end-to-end locally, run `vercel dev` instead of `npm run dev`.
+The `/api/send-enquiry` route is served by Next.js in dev, so the form works with `npm run dev`.
 
 ## Troubleshooting
 - Form returns "Brevo is not configured": env vars missing or not redeployed.

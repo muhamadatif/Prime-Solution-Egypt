@@ -1,5 +1,4 @@
 @import 'tailwindcss';
-@import 'tw-animate-css';
 @import 'shadcn/tailwind.css';
 
 @custom-variant dark (&:is(.dark *));
@@ -22,8 +21,13 @@
 
 @layer base {
   * { @apply border-border outline-ring/50; }
+  *:focus-visible { @apply outline-2 outline-offset-2 outline-ring; }
   html { scroll-behavior: smooth; }
-  body { @apply bg-background text-foreground; font-family: Arial, Helvetica, sans-serif; }
+  body { @apply bg-background text-foreground antialiased; font-family: var(--font-sans); }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+  }
 }
 
 .section-kicker { @apply text-xs font-bold uppercase tracking-[0.22em] text-[#2563a6]; }
@@ -32,3 +36,5 @@
 .field-control { @apply mt-2 block w-full border border-white/20 bg-white/5 px-4 py-3.5 text-sm text-white outline-none transition-colors placeholder:text-[#879aa9] focus:border-[#91b9da] focus:bg-white/10; }
 select.field-control { appearance: auto; color: #d6e1e8; }
 select.field-control option { color: #263238; }
+
+.skip-link { @apply sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-sm focus:bg-[#102a43] focus:px-4 focus:py-2 focus:text-white focus:outline-none; }

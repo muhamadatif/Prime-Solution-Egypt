@@ -1,4 +1,4 @@
-﻿export type EnquiryPayload = {
+export type EnquiryPayload = {
   name: string
   company: string
   email: string
