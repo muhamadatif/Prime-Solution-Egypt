@@ -6,7 +6,7 @@
 - Brevo account with a validated sender + an API key (see "Brevo setup").
 
 ## 1. Push the code
-The deployable app is the repository root (Next.js).
+The deployable app lives in `prime-solution-vite/`. Make that folder the project root on Vercel (or set Root Directory to `prime-solution-vite`).
 
 ```bash
 git add . && git commit -m "initial"
@@ -17,7 +17,7 @@ git add . && git commit -m "initial"
 1. Vercel Dashboard → "Add New..." → "Project".
 2. Import your Git repo.
 3. Framework Preset: **Next.js** (auto-detected). Build command: `npm run build`. Output dir: `.next`.
-4. Root Directory: project root (no subfolder).
+4. Root Directory: `prime-solution-vite`.
 5. Click "Deploy".
 
 CLI alternative:
